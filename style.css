@@ -1,9 +1,9 @@
 :root {
-  --primary-blue: #0b3c5d;
-  --accent-yellow: #f1d100;
-  --dark-bg: #1d2731;
-  --light-bg: #f4f6f8;
-  --text-color: #222222;
+  --blue-team: #005bb5;
+  --yellow-team: #ffd000;
+  --dark-bg: #111827;
+  --light-bg: #f3f4f6;
+  --text-color: #1f2937;
   --card-bg: #ffffff;
 }
 
@@ -14,21 +14,20 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Impact, Roboto, sans-serif;
   background-color: var(--light-bg);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Navigace */
 header {
-  background-color: var(--primary-blue);
+  background-color: var(--dark-bg);
   color: white;
-  border-bottom: 5px solid var(--accent-yellow);
+  border-bottom: 5px solid var(--yellow-team);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-container {
@@ -37,79 +36,124 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
 
 .logo {
-  font-size: 1.6rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 900;
   color: white;
   text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .logo span {
-  color: var(--accent-yellow);
+  color: #ef4444;
+  margin: 0 5px;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   transition: color 0.2s;
 }
 
 nav a:hover {
-  color: var(--accent-yellow);
+  color: var(--yellow-team);
 }
 
 /* Hero sekce */
 .hero {
-  background: linear-gradient(rgba(11, 60, 93, 0.88), rgba(29, 39, 49, 0.92)),
+  background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(17, 24, 39, 0.95)),
               url('https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3.5rem 1rem;
 }
 
 .hero h1 {
   font-size: 2.8rem;
-  margin: 1rem 0;
+  margin: 0.8rem 0;
   text-transform: uppercase;
 }
 
 .hero h1 span {
-  color: var(--accent-yellow);
+  color: var(--yellow-team);
 }
 
 .hero p {
-  font-size: 1.15rem;
-  max-width: 700px;
+  font-size: 1.1rem;
+  max-width: 650px;
   margin: 0 auto;
-  color: #e2e8f0;
+  color: #d1d5db;
 }
 
 .badge {
   display: inline-block;
-  background-color: var(--accent-yellow);
-  color: var(--primary-blue);
-  font-weight: bold;
-  padding: 0.4rem 1.2rem;
+  background-color: var(--yellow-team);
+  color: #000;
+  font-weight: 900;
+  padding: 0.3rem 1rem;
   border-radius: 20px;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
-/* Rozvržení (Grid) */
+/* Skóre Board / Bilance */
+.score-board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px dashed #cbd5e1;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-name {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-wins {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.team.blue .team-wins { color: var(--blue-team); }
+.team.yellow .team-wins { color: #d97706; }
+
+.vs {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #94a3b8;
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+/* Layout */
 .container {
   max-width: 1200px;
-  margin: 2.5rem auto;
+  margin: 2rem auto;
   padding: 0 1.5rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -127,14 +171,14 @@ nav a:hover {
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-top: 4px solid var(--primary-blue);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--dark-bg);
 }
 
 .card h2 {
-  color: var(--primary-blue);
-  margin-bottom: 1.2rem;
-  font-size: 1.4rem;
+  color: var(--dark-bg);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
 
 /* Tabulky */
@@ -148,53 +192,49 @@ table {
 }
 
 th, td {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.5rem;
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
 }
 
 th {
-  background-color: #f8f9fa;
-  color: var(--primary-blue);
+  background-color: #f8fafc;
+  color: var(--dark-bg);
+  font-weight: 800;
+}
+
+/* Stadiony Badges */
+.stadium-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
-tr:hover {
-  background-color: #f1f5f9;
-}
+.stadium-badge.trebon { background: #e0f2fe; color: #0369a1; }
+.stadium-badge.veseli { background: #fef3c7; color: #b45309; }
 
-/* Statusy výsledků */
+/* Výsledky statusy */
 .status {
   font-weight: bold;
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-size: 0.85rem;
-  display: inline-block;
 }
 
-.status.win {
-  background-color: #d1fae5;
-  color: #065f46;
-}
-
-.status.loss {
-  background-color: #fee2e2;
-  color: #991b1b;
-}
-
-.status.draw {
-  background-color: #fef3c7;
-  color: #92400e;
-}
+.status.win-blue { background: #dbeafe; color: var(--blue-team); }
+.status.win-yellow { background: #fef9c3; color: #a16207; }
+.status.draw { background: #f3f4f6; color: #4b5563; }
 
 /* Formulář */
 .form-group {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .form-row {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .form-row .form-group {
@@ -203,40 +243,41 @@ tr:hover {
 
 label {
   display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  font-size: 0.85rem;
 }
 
-input {
+input, select {
   width: 100%;
-  padding: 0.65rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.6rem;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
   font-size: 0.95rem;
 }
 
-input:focus {
+input:focus, select:focus {
   outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 2px rgba(11, 60, 93, 0.2);
+  border-color: var(--blue-team);
 }
 
 .btn {
-  background-color: var(--accent-yellow);
-  color: var(--primary-blue);
+  background-color: var(--yellow-team);
+  color: #000;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-weight: bold;
+  padding: 0.8rem;
+  font-weight: 900;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   width: 100%;
-  transition: background 0.2s;
+  text-transform: uppercase;
+  transition: transform 0.1s, background 0.2s;
 }
 
 .btn:hover {
-  background-color: #e0c200;
+  background-color: #eab308;
+  transform: translateY(-2px);
 }
 
 /* Patička */
@@ -245,6 +286,7 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 4rem;
-  border-top: 5px solid var(--accent-yellow);
+  margin-top: 3rem;
+  border-top: 5px solid var(--yellow-team);
+  font-weight: bold;
 }
