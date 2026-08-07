@@ -1,0 +1,250 @@
+:root {
+  --primary-blue: #0b3c5d;
+  --accent-yellow: #f1d100;
+  --dark-bg: #1d2731;
+  --light-bg: #f4f6f8;
+  --text-color: #222222;
+  --card-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Navigace */
+header {
+  background-color: var(--primary-blue);
+  color: white;
+  border-bottom: 5px solid var(--accent-yellow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-yellow);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent-yellow);
+}
+
+/* Hero sekce */
+.hero {
+  background: linear-gradient(rgba(11, 60, 93, 0.88), rgba(29, 39, 49, 0.92)),
+              url('https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  color: var(--accent-yellow);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #e2e8f0;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+  font-weight: bold;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Rozvržení (Grid) */
+.container {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--primary-blue);
+}
+
+.card h2 {
+  color: var(--primary-blue);
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+
+/* Tabulky */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Statusy výsledků */
+.status {
+  font-weight: bold;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.status.win {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status.loss {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status.draw {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* Formulář */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(11, 60, 93, 0.2);
+}
+
+.btn {
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background-color: #e0c200;
+}
+
+/* Patička */
+footer {
+  background-color: var(--dark-bg);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-top: 5px solid var(--accent-yellow);
+}
