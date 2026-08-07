@@ -2,56 +2,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const matchForm = document.getElementById('match-form');
   const matchesTable = document.getElementById('matches-table').querySelector('tbody');
 
-  // Nastavení dnešního data do inputu
+  // Výchozí dnešní datum ve formuláři
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('date').value = today;
+
+  // Počáteční stav výher (podle ukázkových dat v HTML)
+  let blueWinsCount = 2;
+  let yellowWinsCount = 1;
 
   matchForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Načtení hodnot z formuláře
+    // Načtení hodnot
     const rawDate = document.getElementById('date').value;
-    const opponent = document.getElementById('opponent').value;
-    const ourScore = parseInt(document.getElementById('our-score').value);
-    const theirScore = parseInt(document.getElementById('their-score').value);
+    const stadium = document.getElementById('stadium').value;
+    const blueScore = parseInt(document.getElementById('blue-score').value);
+    const yellowScore = parseInt(document.getElementById('yellow-score').value);
+    const note = document.getElementById('note').value || 'Bez komentáře 🍺';
 
-    // Formátování data na DD. MM. YYYY
+    // Formát data DD. MM. YYYY
     const formattedDate = new Date(rawDate).toLocaleDateString('cs-CZ', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric'
     });
 
-    // Určení výsledku zápasu
-    let statusText = '';
-    let statusClass = '';
-
-    if (ourScore > theirScore) {
-      statusText = 'Výhra';
-      statusClass = 'win';
-    } else if (ourScore < theirScore) {
-      statusText = 'Prohra';
-      statusClass = 'loss';
+    // Určení vítěze & aktualizace celkové bilance
+    let winnerHTML = '';
+    
+    if (blueScore > yellowScore) {
+      winnnerHTML = '<span class="status win-blue">🟦 Modráci</span>';
+      blueWinsCount++;
+    } else if (yellowScore > blueScore) {
+      winnnerHTML = '<span class="status win-yellow">🟨 Žlutáci</span>';
+      yellowWinsCount++;
     } else {
-      statusText = 'Remíza';
-      statusClass = 'draw';
+      winnnerHTML = '<span class="status draw">🤝 Remíza</span>';
     }
 
-    // Vytvoření nového řádku tabulky
+    // Třída pro badge stadionu (Třeboň / Veselí)
+    const stadiumClass = stadium.includes('Třeboň') ? 'trebon' : 'veseli';
+
+    // Vytvoření řádku tabulky
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
       <td>${formattedDate}</td>
-      <td>${opponent}</td>
-      <td><strong>${ourScore} : ${theirScore}</strong></td>
-      <td><span class="status ${statusClass}">${statusText}</span></td>
+      <td><span class="stadium-badge ${stadiumClass}">${stadium}</span></td>
+      <td><strong>${blueScore} : ${yellowScore}</strong></td>
+      <td>${winnnerHTML}</td>
+      <td>${note}</td>
     `;
 
-    // Přidání zápasu na začátek tabulky (nejnovější nahoře)
+    // Přidat na začátek tabulky
     matchesTable.insertBefore(newRow, matchesTable.firstChild);
 
-    // Vyčištění vstupních polí formuláře
-    document.getElementById('opponent').value = '';
-    document.getElementById('our-score').value = '';
-    document.getElementById('their-score').value = '';
+    // Přepočítat skóre série v horní kartě
+    document.getElementById('blue-wins').textContent = blueWinsCount;
+    document.getElementById('yellow-wins').textContent = yellowWinsCount;
+
+    // Pročištění formuláře
+    document.getElementById('blue-score').value = '';
+    document.getElementById('yellow-score').value = '';
+    document.getElementById('note').value = '';
   });
 });
