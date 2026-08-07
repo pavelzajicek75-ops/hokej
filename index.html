@@ -2,11 +2,160 @@
 <html lang="cs">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Hokej</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HC Modrožlutí | Amatérský hokejový tým</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hokej</h1>
-    <p>Test</p>
+
+    <!-- Navigace -->
+    <header>
+      <div class="nav-container">
+        <a href="#" class="logo">HC <span>Modrožlutí</span> 🏒</a>
+        <nav>
+          <ul>
+            <li><a href="#zapasy">Zápasy</a></li>
+            <li><a href="#statistiky">Statistiky</a></li>
+            <li><a href="#zapsat">Zapsat zápas</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Úvodní hokejová sekce -->
+    <section class="hero">
+      <div class="badge">Amatérská Hokejová Liga</div>
+      <h1>Srdce, pot a <span>žlutomodrá</span> krev</h1>
+      <p>
+        Nehrajeme NHL, ale na ledě necháváme všechno! Milujeme rychlost tvrdého ledu, vůni výstroje a pozápasové pivo v kabině. Sleduj naše výsledky a udržuj statistiky aktuální.
+      </p>
+    </section>
+
+    <!-- Hlavní obsah -->
+    <main class="container">
+      
+      <!-- Levá část - Tabulky -->
+      <div class="main-content">
+        
+        <!-- Odehrané zápasy -->
+        <article class="card" id="zapasy">
+          <h2>📅 Odehrané zápasy</h2>
+          <div class="table-wrapper">
+            <table id="matches-table">
+              <thead>
+                <tr>
+                  <th>Datum</th>
+                  <th>Soupeř</th>
+                  <th>Skóre</th>
+                  <th>Výsledek</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>02. 10. 2026</td>
+                  <td>HC Rytíři Veselí</td>
+                  <td><strong>5 : 3</strong></td>
+                  <td><span class="status win">Výhra</span></td>
+                </tr>
+                <tr>
+                  <td>25. 09. 2026</td>
+                  <td>Pivnice Sršni</td>
+                  <td><strong>2 : 4</strong></td>
+                  <td><span class="status loss">Prohra</span></td>
+                </tr>
+                <tr>
+                  <td>18. 09. 2026</td>
+                  <td>SK Sršni Tábor</td>
+                  <td><strong>4 : 4</strong></td>
+                  <td><span class="status draw">Remíza</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- Kanadské bodování -->
+        <article class="card" id="statistiky">
+          <h2>🏆 Kanadské bodování týmu</h2>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Hráč</th>
+                  <th>Góly</th>
+                  <th>Asistence</th>
+                  <th>Body</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td>
+                  <td>Petr "Šutér" Novák (#68)</td>
+                  <td>6</td>
+                  <td>4</td>
+                  <td><strong>10</strong></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Martin Dvořák (#12)</td>
+                  <td>3</td>
+                  <td>5</td>
+                  <td><strong>8</strong></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Tomáš Svoboda (#87)</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td><strong>5</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Pravá část - Formulář -->
+      <aside class="sidebar">
+        <article class="card sticky-card" id="zapsat">
+          <h2>✏️ Zapsat nový zápas</h2>
+          <form id="match-form">
+            <div class="form-group">
+              <label for="date">Datum zápasu</label>
+              <input type="date" id="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="opponent">Soupeř</label>
+              <input type="text" id="opponent" placeholder="Např. HC Sršni" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="our-score">Góly (My)</label>
+                <input type="number" id="our-score" min="0" placeholder="0" required />
+              </div>
+
+              <div class="form-group">
+                <label for="their-score">Góly (Soupeř)</label>
+                <input type="number" id="their-score" min="0" placeholder="0" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn">Uložit zápas</button>
+          </form>
+        </article>
+      </aside>
+
+    </main>
+
+    <!-- Patička -->
+    <footer>
+      <p><strong>HC Modrožlutí</strong> &copy; 2026 | Hokej je náš život 🏒</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
