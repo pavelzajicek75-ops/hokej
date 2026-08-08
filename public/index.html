@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MODRÁCI vs. ŽLUTÁCI | Řežba na ledu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header>
+      <div class="nav-container">
+        <a href="#" class="logo">🟦 MODRÁCI <span>VS</span> ŽLUTÁCI 🟨</a>
+        <div id="user-status-bar">
+          <span id="user-display">Odhlášen</span>
+          <button id="auth-btn" class="btn-sm">Přihlásit se</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="badge">Tradiční amatérské derby</div>
+      <h1>Méně fyzičky, <span>více srdíčka!</span> 🍺🏒</h1>
+    </section>
+
+    <main class="container">
+      
+      <div class="main-content">
+        <!-- Bilance -->
+        <article class="card">
+          <h2>📊 Jak si stojíme v sérii?</h2>
+          <div class="score-board">
+            <div class="team blue">
+              <span class="team-name">🟦 MODRÁCI</span>
+              <span class="team-wins" id="blue-wins">0</span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team yellow">
+              <span class="team-name">🟨 ŽLUTÁCI</span>
+              <span class="team-wins" id="yellow-wins">0</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Zápasy -->
+        <article class="card">
+          <h2>📅 Odehrané mače</h2>
+          <div id="matches-container">
+            <!-- Dynamický obsah -->
+          </div>
+        </article>
+      </div>
+
+      <aside class="sidebar">
+        <!-- Přihlášení -->
+        <article class="card" id="login-card">
+          <h2>🔑 Přihlášení do kabiny</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label>Jméno (admin, Pepa, Jirka...)</label>
+              <input type="text" id="login-username" required />
+            </div>
+            <div class="form-group">
+              <label>Heslo (admin123, pepa123...)</label>
+              <input type="password" id="login-password" required />
+            </div>
+            <button type="submit" class="btn">Vstoupit</button>
+          </form>
+        </article>
+
+        <!-- Admin zápis nového zápasu -->
+        <article class="card hidden" id="admin-match-form-card">
+          <h2>⚡ Zapsat zápas (JEN ADMIN)</h2>
+          <form id="admin-match-form">
+            <div class="form-group">
+              <label for="date">Datum mače</label>
+              <input type="date" id="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="stadium">Stadion</label>
+              <select id="stadium" required>
+                <option value="Třeboň">🏒 Třeboň</option>
+                <option value="Veselí">🏒 Veselí nad Lužnicí</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>🟦 Modráci</label>
+                <input type="number" id="blue-score" min="0" required />
+              </div>
+
+              <div class="form-group">
+                <label>🟨 Žlutáci</label>
+                <input type="number" id="yellow-score" min="0" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Poznámka ke hře</label>
+              <input type="text" id="note" placeholder="Např. Krásné derby..." />
+            </div>
+
+            <button type="submit" class="btn">Uložit nový zápas</button>
+          </form>
+        </article>
+      </aside>
+
+    </main>
+
+    <footer>
+      <p>Modráci vs. Žlutáci | Hokejová horečka Třeboňsko & Veselsko 🏒🍺</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
